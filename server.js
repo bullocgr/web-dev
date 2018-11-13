@@ -31,6 +31,7 @@ function requestHandler(req, res) {
             break;
         case '/index.js':
             res.end(fs.readFileSync('public/index.js'));
+            console.log("Reading index.js");
             break;
         case '/benny.jpg':
             res.end(fs.readFileSync('public/benny.jpg'));
