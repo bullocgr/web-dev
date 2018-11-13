@@ -7,4 +7,13 @@
  * to see all of the client-side JS interactions you implemented.
  */
 
+/*
+ * Write your JS code in this file.  Don't forget to include your name and
+ * @oregonstate.edu email address below.
+ *
+ * Name: Grace Bullock
+ * Email: bullocgr@oregonstate.edu
+ */
+
+
 alert('Client-side JS was successfully loaded.');
