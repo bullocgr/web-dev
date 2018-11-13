@@ -9,41 +9,51 @@
 var http = require('http');
 var fs = require('fs');
 const PORT = process.env.PORT || 3000;
+var cacheName = [];
+var cacheData = [];
+var index;
 
 
 function requestHandler(req, res) {
-    res.statusCode = 200;
-    var url = req.url;
-    console.log("url: ", req.url);
+    if(req.method === 'GET') {
+        if(cacheName.includes(req.url)) {
+            index = cacheName.includes(req.url);
+            data = cacheData[index];
+            res.statusCode = 200;
+        }
+        res.statusCode = 200;
+        var url = req.url;
+        console.log("url: ", req.url);
 
-    switch(url) {
-        case '/index.html':
-            res.end(fs.readFileSync('public/index.html'));
-            console.log("Reading index.html");
-            break;
-        case '/':
-            res.end(fs.readFileSync('public/index.html'));
-            console.log("Reading index.html");
-            break;
-        case '/style.css':
-            res.end(fs.readFileSync('public/style.css'));
-            console.log("Reading style.css");
-            break;
-        case '/index.js':
-            res.end(fs.readFileSync('public/index.js'));
-            console.log("Reading index.js");
-            break;
-        case '/benny.jpg':
-            res.end(fs.readFileSync('public/benny.jpg'));
-            console.log("Reading benny.jpg");
-            break;
-        default:
-            res.end(fs.readFileSync('public/404.html'));
-            // console.log("Reading error");
-            res.statusCode = 404;
-            break;
-    }
+        switch(url) {
+            case '/index.html':
+                res.end(fs.readFileSync('public/index.html'));
+                console.log("Reading index.html");
+                break;
+            case '/':
+                res.end(fs.readFileSync('public/index.html'));
+                console.log("Reading index.html");
+                break;
+            case '/style.css':
+                res.end(fs.readFileSync('public/style.css'));
+                console.log("Reading style.css");
+                break;
+            case '/index.js':
+                res.end(fs.readFileSync('public/index.js'));
+                console.log("Reading index.js");
+                break;
+            case '/benny.jpg':
+                res.end(fs.readFileSync('public/benny.jpg'));
+                console.log("Reading benny.jpg");
+                break;
+            default:
+                res.end(fs.readFileSync('public/404.html'));
+                // console.log("Reading error");
+                res.statusCode = 404;
+                break;
+        }
     console.log(res.statusCode);
+    }
 
 }
 
