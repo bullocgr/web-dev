@@ -1,0 +1,67 @@
+<body>
+    <main class=content>
+
+        <aside class="menu">
+            <div class="nav-bar">
+                {{!-- <a href="#" class="plant-title">Plant 1</a> --}}
+                <!-- <a href="#" class="plant-title">Plant 2</a>
+                <a href="#" class="plant-title">Plant 3</a> -->
+                <button id="add-plant">Add Plant</button>
+                <!-- we can mess around with the css later this is just a general idea -->
+            </div>
+            <div id="modal-backdrop" class="hidden"></div>
+            <div id="add-plant-modal" class="hidden">
+                <div class="modal">
+                    <div class="modal-header">
+                        <h3>Add A New Plant</h3>
+                        <button type="button" id="modal-close" class="modal-hide-button">&times;</button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="modal-element">
+                            <label for="flower-name-input">Name</label>
+                            <input id="flower-name-input" type="text">
+                        </div>
+                        <div class="modal-element">
+                            <label for="flower-photo-input">Photo URL</label>
+                            <input id="flower-photo-input" type="text">
+                        </div>
+                        <div class="modal-element">
+                            <label for="flower-about-input">About Me</label>
+                            <input id="flower-about-input" type="text">
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" id="modal-cancel" class="modal-hide-button action-button">Cancel</button>
+                        <button type="button" id="modal-accept" class="action-button">Make My New Plant!</button>
+                    </div>
+                </div>
+            </div>
+        </aside>
+        <div id="modal-backdrop-name" class="hidden"></div>
+        <div id="rename-plant-modal" class="hidden">
+            <div class="modal-plant-name">
+                <div class="modal-header">
+                    <h3>Rename</h3>
+                </div>
+                <div class="modal-body">
+                    <div class="modal-element">
+                        <label for="flower-newname-input">New Name</label>
+                        <input id="flower-newname-input" type="text">
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" id="modal-name-cancel" class="modal-hide-button action-button">Cancel</button>
+                    <button type="button" id="modal-name-accept" class="action-button">Rename My Plant!</button>
+                </div>
+            </div>
+        </div>
+
+        <section id="plants">
+            {{#each plants}}
+            {{> plant}}
+            {{/each}}
+        </section>
+
+
+    </main>
+</body>
